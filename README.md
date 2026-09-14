@@ -53,6 +53,8 @@ The source dataset is the SQL Murder Mystery dataset, imported into MySQL Workbe
 ```text
 sql-murder-mystery-analysis/
 ├── README.md
+├── data/
+│   └── README.md
 └── queries/
     ├── 01_database_exploration.sql
     ├── 02_crime_scene_analysis.sql
@@ -96,6 +98,19 @@ The final section goes beyond the mystery and asks analyst-style questions such 
 - Who are the most active gym members?
 - Which events receive the most check-ins?
 - Who are the top income earners within each gender?
+
+## Verified Key Findings
+
+The following findings were produced by running the portfolio queries in MySQL Workbench:
+
+- **SQL City and Murfreesboro were tied for the highest number of crime reports among the displayed top cities, with 9 reports each.**
+- **Murder and arson were the joint most common crime types, with 148 reports each.** Assault followed with 145 reports and theft with 141.
+- **Murder and arson each represented 12.05% of all crime reports.** Assault represented 11.81% and theft 11.48%.
+- **Average annual income was slightly higher for females than males in the matched person/licence/income records:** 53,559.09 versus 52,947.39.
+- The income comparison query joined **three relational tables** (`person`, `drivers_license`, and `income`) and used `COUNT`, `AVG`, `ROUND`, `GROUP BY`, and `ORDER BY`.
+- The crime-share analysis used a **window function** with `SUM(COUNT(*)) OVER ()` to calculate percentage of total without a separate summary query.
+
+These findings are based on the fictional SQL Murder Mystery dataset and are included to demonstrate analytical SQL techniques rather than real-world crime or demographic conclusions.
 
 ## Why I Built This Project
 
